@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax建入資料庫</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="name" placeholder="姓名">
+        <input type="text" id="sex" placeholder="性別">
+        <input type="text" id="birthday" placeholder="生日">
+        <input type="text" id="address" placeholder="地址">
+        <input type="text" id="city" placeholder="城市">
+        <input type="text" id="location" placeholder="國家">
+        <input type="text" id="zone" placeholder="郵遞區號">
+        <input type="text" id="phone" placeholder="電話">
+        <button type="submit" id="submit">送出</button>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#submit').on('click', function () {
+                var name = $("#name").val();
+                var address = $("#address").val();
+                var sex = $("#sex").val();
+                var birthday = $("#birthday").val();
+                var city = $("#city").val();
+                var location = $("#location").val();
+                var zone = $("#zone").val();
+                var phone = $("#phone").val();
+                $.ajax({
+                    url: './insert.php',
+                    method: 'POST',
+                
+                    data: {
+                        name: name,
+                        sex: sex,
+                        birthday: birthday,
+                        address: address,
+                        city: city,
+                        location: location,
+                        zone: zone,
+                        phone: phone,
+                    },
+                    success: function (data) {
+                        alert(data);
+                        console.log(data);
+                    }
+                })
+            })
+
+        });
+    </script>
+
+</body>
+
+</html>
