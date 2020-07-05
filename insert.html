@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="row">
         <input type="text" id="name" placeholder="姓名">
         <input type="text" id="sex" placeholder="性別">
         <input type="text" id="birthday" placeholder="生日">
@@ -36,7 +36,7 @@
                 $.ajax({
                     url: './insert.php',
                     method: 'POST',
-                
+
                     data: {
                         name: name,
                         sex: sex,
